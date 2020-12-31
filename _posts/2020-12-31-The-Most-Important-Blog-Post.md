@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Another test markdown
+title: The Most Important Blog Post
 categories: writing
 tags: [write] [blog]
 ---
+
 
 From Seth Godin's blog: 
 
