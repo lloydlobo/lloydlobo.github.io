@@ -2,7 +2,7 @@
 layout: post
 title: The Most Important Blog Post
 categories: writing
-tags: [write] [blog]
+tags: [blog]
 ---
 
 
