@@ -1,12 +1,12 @@
 ---
+layout: post
+title: Systems vs Motivation
+subtitle: Why Showing Up Everyday Works
+categories: writing
+tags: [blog]
 created: 2021-01-02T14:53:43+05:30
 modified: 2021-01-02T14:56:15+05:30
 ---
-
-# Systems vs Motivation : Why Showing Up Everyday Works
-
-## Why Systems Work
-
 ## Showing Up
 - Showing up is half the battle. 
 - Environment affects it. Setting it up the previous day or task makes the transition smooth.
