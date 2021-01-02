@@ -3,10 +3,10 @@ layout: post
 title: The Most Important Blog Post
 categories: writing
 tags: [blog]
+modified: 2021-01-02T08:36:08+05:30
 ---
 
-
-From Seth Godin's blog: 
+Excerpts about the most important blog post from Seth Godin's blog: 
 
 > It is on the most important blog. 
 Yours. 
@@ -14,7 +14,7 @@ Even if no one but you reads it. The blog you write each day is the blog you nee
 And the most important post? The one you’ll write tomorrow.
 
 ## The First Step is the Hardest
-Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+I have noticed that starting with something is always a challenge. If it was easy then we would have done it by now. 
 
 ## Write for yourself first
 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
@@ -26,4 +26,4 @@ Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
 Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
 
 ### Atomic Notes
-Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum 
+Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
