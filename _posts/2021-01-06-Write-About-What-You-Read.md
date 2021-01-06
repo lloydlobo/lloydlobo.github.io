@@ -5,14 +5,15 @@ categories: writing
 tags: [blog]
 ---
 
-There is a reason why writing about content which we consumed works. We take interest in that area and the writing comes out with less effort. Moreover, to understand something engaging with it on all levels is a must.
-When we write, it pushes us to be precise about the idea we want to convey, and allows us to think on  our own.
+Writing about content which we consume works in our favor. We take interest in that area and the writing comes out with less effort. To understand something completely, engaging with it on all levels, is necessary.
 
-Highlighting and collecting notes is futile. There is no constraint to remix it and create something new. It stays there for years as a prized trophy among many others. They don't add up you consume more.
+The act of writing pushes us to be precise about the idea we want to convey. This allows us to think on our own.
 
-The most voracious readers and writers say that they don't take notes while reading. They read with the intention to use a new found understanding into creative projects.
+Highlighting and collecting notes is eventually futile. There is no pressure to remix it and create something new. It stays in our vaults for years, as a prized trophy among many others. They don't add up as you consume more.
 
-They use this 2 Fold cycle:
+The most voracious readers and writers say that they don't take notes, while reading. They read with the intention to use a new found understanding, into new creative projects.
 
-1. **Collect** small packets of content, which gets you hooked, and note down thoughts and observations while reading.
+They use the following two-fold cycle:
+
+1. **Collect** small packets of content, and note down thoughts and observations while reading.
 2. **Process** the collected content and mold them into permanent notes.
