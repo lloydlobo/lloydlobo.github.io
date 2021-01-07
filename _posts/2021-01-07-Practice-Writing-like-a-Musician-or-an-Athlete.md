@@ -1,5 +1,3 @@
-# Practice Writing like a Musician or an Athlete
-
 ---
 layout: post
 title: Practice Writing like a Musician or an Athlete
