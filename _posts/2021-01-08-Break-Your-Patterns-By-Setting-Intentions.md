@@ -1,9 +1,11 @@
 ---
+layout: post
+title: Break Your Patterns By Setting Intentions
+categories: Personal Development
+tags: [intention]
 created: 2021-01-08T12:25:10+05:30
 modified: 2021-01-08T20:27:04+05:30
 ---
-
-# Break Your Patterns By Setting-Intentions
 
 Have you ever felt stuck in life l, a job or a mood? Do you find yourself going through the same motions daily with no perspective. I did and sometimes still dom
 
