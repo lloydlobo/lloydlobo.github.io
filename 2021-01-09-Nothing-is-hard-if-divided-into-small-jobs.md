@@ -1,15 +1,9 @@
 ---
 created: 2021-01-09T18:15:13+05:30
-modified: 2021-01-09T18:37:19+05:30
+modified: 2021-01-09T18:38:03+05:30
 ---
 
 # Nothing is hard if divided into small jobs
-
----
-layout: post
-categories: life hack
-tag: 
----
 
 Henry Ford famously said that "Nothing is particularly hard if you divide it into small jobs".
 It is unreasonable to say that nothing is hard and everything is doable.
