@@ -1,4 +1,8 @@
 ---
+layout: post
+title: Break Your Patterns By Setting Intentions
+categories: Personal Development
+tags: [intention]
 created: 2021-01-09T18:15:13+05:30
 modified: 2021-01-09T18:46:42+05:30
 ---
