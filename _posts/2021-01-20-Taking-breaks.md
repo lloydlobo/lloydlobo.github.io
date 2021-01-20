@@ -2,7 +2,7 @@
 layout: post
 title: Taking Breaks
 categories: Personal Development
-tags: [intention]
+tags: [taking easy]
 ---
 
 Sometimes it is unrealistic to keep a vow of a daily goal. When we look up on our idols, we see them perform consistently.
