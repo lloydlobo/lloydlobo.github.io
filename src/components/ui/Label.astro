@@ -1,0 +1,21 @@
+---
+// Ref: https://ui.shadcn.com/docs/components/label
+// Usage: <Label for="email">Email</Label>
+
+import type { HTMLAttributes } from "astro/types"
+import { cn } from "../../lib/utils"
+
+interface Props extends HTMLAttributes<"label"> {
+  class?: string
+}
+
+const { class: className, ...rest } = Astro.props
+---
+
+<label
+  data-slot="label"
+  class={cn("flex item-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50", className)}
+  {...rest}
+>
+  <slot />
+</label>

@@ -1,0 +1,19 @@
+---
+import LogoStarIcon from "../assets/logo-star.svg" // https://docs.astro.build/en/guides/images/#svg-component-attributes
+import Separator from "../components/ui/Separator.astro"
+import cvJSON from "../data/cv.astro.json"
+
+const cv = cvJSON.cv
+const fullName = cv.name
+---
+
+<header class="~p-7 relative mt-8 overflow-hidden ~border-b-3 pb-8">
+  <div id="home" class="heading-scroll flex scroll-m-8 items-center gap-3">
+    <LogoStarIcon class="size-8" />
+    <p class="text-lg font-semibold">
+      {fullName}
+    </p>
+  </div>
+</header>
+
+<Separator />

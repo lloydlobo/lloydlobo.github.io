@@ -1,0 +1,36 @@
+---
+import cvJSON from "../data/cv.astro.json"
+import Card from "../components/ui/Card.astro"
+import CardHeader from "../components/ui/CardHeader.astro"
+import CardTitle from "../components/ui/CardTitle.astro"
+import CardContent from "../components/ui/CardContent.astro"
+
+const cv = cvJSON.cv
+const education = cv.sections.education
+
+function parseYear(date: string): number {
+  return new Date(date).getFullYear()
+}
+---
+
+<Card>
+  <CardHeader>
+    <CardTitle>Education</CardTitle>
+  </CardHeader>
+  <CardContent>
+    {education.map((item) => (
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-4">
+          <img src={item.image_src} alt={item.imageAlt} loading="lazy" class="w-12">
+          <div>
+            <p class="font-semibold text-sm lg:text-base line-clamp-1 max-w-[30ch]">{item.institution}</p>
+            <p class="font-muted-foreground text-xs lg:text-sm">{item.area}</p>
+          </div>
+        </div>
+        <p class="shrink-0 text-muted-foreground text-xs lg:text-sm">
+          {parseYear(item.start_date)} - {item.end_date ? parseYear(item.end_date) : "Present"}
+        </p>
+      </div>
+    ))}
+  </CardContent>
+</Card>

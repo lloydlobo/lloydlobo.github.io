@@ -1,0 +1,60 @@
+---
+// Ref: https://github.com/anthonylan/angie/blob/main/src/components/Tools.astro
+
+import cvJSON from "../data/cv.astro.json"
+import Separator from "../components/ui/Separator.astro"
+
+const cv = cvJSON.cv
+const skills = cv.sections.skills
+const tools = skills.flatMap(skill => skill.details.split(", "))
+---
+
+<Separator />
+<section class="relative bg-background py-6 z-5">
+  <div class="overflow-hidden marquee-mask">
+    <div class="flex items-center gap-10 md:gap-30" id="cloned">
+      {tools.map((tool) => (
+        <div class="text-muted-foreground flex-1 font-semibold text-lg whitespace-nowrap font-mono">
+          {" "}{tool}{" "}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<Separator />
+
+<style>
+  .marquee-mask {
+    --edge-fade: 12%;
+
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black var(--edge-fade),
+      black calc(100% - var(--edge-fade)),
+      transparent 100%);
+
+    @media (min-width: 768px) {
+      --edge-fade: 16%;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap"
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const clonedContainer = document.querySelector("#cloned") as HTMLDivElement
+    Array.from(clonedContainer.children).forEach((img) => {
+      const clone = img.cloneNode(true)
+      clonedContainer.appendChild(clone)
+    })
+
+    const tl = gsap.timeline({ repeat: -1 })
+    tl.to(clonedContainer, {
+      x: -(clonedContainer.scrollWidth / 2),
+      duration: 60,
+      ease: "none",
+    })
+  })
+</script>

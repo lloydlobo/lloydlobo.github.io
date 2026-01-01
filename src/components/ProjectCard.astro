@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets"
+
+import GitHubIcon from "../assets/github.svg"
+import GlobeIcon from "../assets/globe.svg"
+import { cn, isGitHubUrL } from "../lib/utils"
+import { buttonVariants } from "../components/ui/Button.astro"
+import Badge from "../components/ui/Badge.astro"
+import Card from "../components/ui/Card.astro"
+import CardHeader from "../components/ui/CardHeader.astro"
+import CardTitle from "../components/ui/CardTitle.astro"
+import CardContent from "../components/ui/CardContent.astro"
+import CardDescription from "../components/ui/CardDescription.astro"
+import CardAction from "../components/ui/CardAction.astro"
+
+const { project } = Astro.props
+
+const isRight = project.card_direction === "right"
+const [_, name, url] = project.name.match(/\[(.*?)\]\((.*?)\)/) || []
+---
+
+<Card
+  aria-label={project.name}
+  class={cn("group", isRight ? "lg:flex-row-reverse ~lg:pr-8 ~lg:pl-0" : "lg:flex-row ~lg:pl-8 ~lg:pr-0")}
+>
+  <div class={cn("w-full lg:w-2/5", "flex flex-col justify-center", "mb-6 lg:mb-12" /*"pt-6 lg:pt-8",*/)}>
+    <CardHeader>
+      <span class="text-muted-foreground mb-2 w-max font-mono text-xs font-semibold lg:mb-4">{project.type}</span>
+      <CardTitle>{name}</CardTitle>
+      <CardDescription class="mb-3 text-sm lg:mb-6 lg:text-lg">{project.summary}</CardDescription>
+    </CardHeader>
+    <CardContent>
+      <div class="mb-3 flex flex-wrap gap-2 lg:mb-6">
+        {project.keywords.map((keyword: string) => (
+          <Badge variant="secondary" class="~font-semibold ~bg-background rounded-md">
+            {keyword}
+          </Badge>
+        ))}
+      </div>
+      <CardAction class="col-start-auto row-span-1 row-start-auto flex gap-2 self-auto justify-self-auto">
+        <div class="flex gap-2">
+          {url && isGitHubUrL(url) && (
+            <a href={url} class={cn(buttonVariants({ variant: "outline" }))}>
+              <GitHubIcon class="size-5" />
+              <span>GitHub</span>
+            </a>
+          )}
+          {project.url && !isGitHubUrL(project.url) && (
+            <a href={project.url} class={cn(buttonVariants({ variant: "outline" }))}>
+              <GlobeIcon class="size-5" />
+              <span>Website</span>
+            </a>
+          )}
+        </div>
+      </CardAction>
+    </CardContent>
+  </div>
+
+  <div class="relative w-full lg:w-3/5">
+    <div
+      class={cn(
+        "-mb-4 flex w-[140%] items-end transition-transform duration-300 lg:absolute lg:-mb-0 lg:translate-x-0 lg:translate-y-8 ",
+        isRight
+          ? "right-0 lg:group-hover:translate-x-6 lg:group-hover:rotate-3"
+          : "left-0 lg:group-hover:-translate-x-6 lg:group-hover:-rotate-3",
+        "lg:group-hover:translate-y-4",
+      )}
+    >
+      <Image
+        src={project.image_src}
+        class="h-auto w-full grow shadow-md"
+        alt={project.image_alt ?? name}
+        width={2550}
+        height={1274}
+      />
+    </div>
+  </div>
+</Card>
+
+<style>
+  /* Provide tailwind utils */
+  @reference "../styles/global.css"
+
+  .project-btn {
+    @apply font-oxanium bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 w-fit items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition duration-200 hover:translate-x-[-3px] hover:translate-y-[-3px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0 active:translate-y-0;
+  }
+</style>

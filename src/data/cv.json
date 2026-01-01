@@ -1,0 +1,215 @@
+{
+  "cv": {
+    "name": "Lloyd Lobo",
+    "headline": null,
+    "location": null,
+    "email": null,
+    "photo": null,
+    "phone": null,
+    "website": "https://lloydlobo.github.io/",
+    "social_networks": [
+      {
+        "network": "LinkedIn",
+        "username": "lloydlobo"
+      },
+      {
+        "network": "GitHub",
+        "username": "lloydlobo"
+      }
+    ],
+    "custom_connections": null,
+    "sections": {
+      "Professional Summary": [
+        "Full-stack developer specializing in systems programming, web development, and game development",
+        "Passionate about low-level programming, performance optimization, and delivering polished projects from concept to deployment"
+      ],
+      "skills": [
+        {
+          "label": "Languages",
+          "details": "Python, Go, TypeScript, JavaScript, F#, C/C++, Rust, SQL"
+        },
+        {
+          "label": "Graphics & Game Development",
+          "details": "Raylib, OpenGL, Blender, 3D Modeling, Ray Tracing"
+        },
+        {
+          "label": "Web Technologies",
+          "details": "React, FastAPI, Web Components, HTML/CSS/JavaScript, HTTP Servers"
+        },
+        {
+          "label": "Systems Programming",
+          "details": "X11 Protocol, Memory Management, Compiler Construction"
+        }
+      ],
+      "projects": [
+        {
+          "name": "[rl-snake](https://github.com/lloydlobo/rl-snake)",
+          "date": null,
+          "start_date": "2025-01",
+          "end_date": "present",
+          "summary": "Flagship cross-platform Snake game built with Go and Raylib",
+          "highlights": [
+            "Developed cross-platform Snake game with 59+ iterative improvements demonstrating commitment to refinement",
+            "Implemented real-time game loop, collision detection, scoring system, and smooth cross-platform graphics rendering"
+          ]
+        },
+        {
+          "name": "[BFInterpreter](https://github.com/lloydlobo/BFInterpreter)",
+          "date": null,
+          "start_date": "2025-02",
+          "end_date": "present",
+          "summary": "Complete Turing-complete Brainfuck language interpreter with REPL interface",
+          "highlights": [
+            "Built complete Turing-complete Brainfuck language interpreter with REPL interface and comprehensive testing suite",
+            "Implemented all 8 Brainfuck operations with robust memory management and comprehensive error handling"
+          ]
+        },
+        {
+          "name": "[depths](https://github.com/lloydlobo/depths)",
+          "date": null,
+          "start_date": "2025-03",
+          "end_date": "2025-03",
+          "summary": "3D space exploration game developed for Ludum Dare 57 game jam",
+          "highlights": [
+            "Developed complete 3D space exploration game for Ludum Dare 57 within 48-hour deadline constraints",
+            "Implemented player controls, dynamic camera systems, and interactive 3D environments with efficient asset management"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Noisy Gates Studios",
+          "position": "Recording Studio Assistant",
+          "date": null,
+          "start_date": "2019-08",
+          "end_date": "2019-11",
+          "summary": null,
+          "highlights": [
+            "Audio engineering and content creation",
+            "Recorded 50+ professional audio sessions...",
+            "Created educational content increasing online audience by 35%..."
+          ]
+        },
+        {
+          "company": "Heat Master",
+          "position": "Front-end Web Developer",
+          "date": null,
+          "start_date": "2016-01",
+          "end_date": "2018-01",
+          "summary": null,
+          "highlights": [
+            "Web development and digital marketing",
+            "Revamped company website using WordPress...",
+            "Led email marketing campaign with 5,000+ subscribers..."
+          ]
+        },
+        {
+          "company": "Heat Master",
+          "position": "Product Design Engineer",
+          "start_date": "2014-07",
+          "end_date": "2016-01",
+          "summary": null,
+          "highlights": [
+            "Product design and engineering support",
+            "Optimized product designs using AutoCAD and SolidWorks...",
+            "Provided technical support for 100+ customers..."
+          ]
+        }
+      ],
+      "education": [
+        {
+          "institution": "SACAC",
+          "area": "Audio Engineering",
+          "degree": "Dipl",
+          "date": null,
+          "start_date": "2018-09",
+          "end_date": "2019-05",
+          "location": "New Delhi, IN",
+          "summary": null,
+          "highlights": [
+            "Professional audio engineering training",
+            "Focused on digital audio workstations, live sound engineering, and music production techniques"
+          ]
+        },
+        {
+          "institution": "SRM University",
+          "area": "Mechanical Engineering",
+          "degree": "BTech",
+          "date": null,
+          "start_date": "2010-09",
+          "end_date": "2014-05",
+          "location": "Chennai, TN, IN",
+          "summary": null,
+          "highlights": [
+            "Engineering fundamentals with computer-aided design focus",
+            "Core coursework in engineering mathematics, computer-aided design, and manufacturing processes"
+          ]
+        }
+      ]
+    }
+  },
+  "design": {
+    "theme": "classic",
+    "typography": {
+      "line_spacing": "0.6em",
+      "alignment": "justified",
+      "date_and_location_column_alignment": "right",
+      "font_family": {
+        "body": "Source Sans 3",
+        "name": "Source Sans 3",
+        "headline": "Source Sans 3",
+        "connections": "Source Sans 3",
+        "section_titles": "Source Sans 3"
+      },
+      "font_size": {
+        "body": "9pt",
+        "name": "18pt",
+        "headline": "7pt",
+        "connections": "10pt",
+        "section_titles": "1.0em"
+      }
+    },
+    "header": {
+      "alignment": "center"
+    },
+    "section_titles": {
+      "space_above": "0.35cm",
+      "space_below": "0.15cm"
+    },
+    "sections": {
+      "allow_page_break": false,
+      "space_between_regular_entries": "0.7em",
+      "space_between_text_based_entries": "0.15em",
+      "show_time_spans_in": [
+        "experience"
+      ]
+    },
+    "entries": {
+      "date_and_location_width": "4.15cm",
+      "side_space": "0.2cm",
+      "space_between_columns": "0.1cm",
+      "allow_page_break": false
+    }
+  },
+  "locale": {
+    "language": "english"
+  },
+  "settings": {
+    "current_date": "2025-12-31",
+    "render_command": {
+      "design": null,
+      "locale": null,
+      "typst_path": "rendercv_output/NAME_IN_SNAKE_CASE_CV.typ",
+      "pdf_path": "rendercv_output/NAME_IN_SNAKE_CASE_CV.pdf",
+      "markdown_path": "rendercv_output/NAME_IN_SNAKE_CASE_CV.md",
+      "html_path": "rendercv_output/NAME_IN_SNAKE_CASE_CV.html",
+      "png_path": "rendercv_output/NAME_IN_SNAKE_CASE_CV.png",
+      "dont_generate_markdown": false,
+      "dont_generate_html": false,
+      "dont_generate_typst": false,
+      "dont_generate_pdf": false,
+      "dont_generate_png": false
+    },
+    "bold_keywords": []
+  }
+}

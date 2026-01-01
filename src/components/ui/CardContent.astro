@@ -1,0 +1,14 @@
+---
+// CardContent.astro
+import { cn } from "../../lib/utils"
+
+interface Props {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<div data-slot="card-content" class={cn("px-6", className)} {...props}>
+  <slot />
+</div>

@@ -1,0 +1,32 @@
+---
+import cvJSON from "../data/cv.astro.json"
+
+import { Image } from "astro:assets" // https://docs.astro.build/en/guides/images/#image-
+import Card from "../components/ui/Card.astro"
+import CardHeader from "../components/ui/CardHeader.astro"
+import CardTitle from "../components/ui/CardTitle.astro"
+import CardContent from "../components/ui/CardContent.astro"
+import AspectRatio from "../components/ui/AspectRatio.astro"
+
+const cv = cvJSON.cv
+const githubProfile = cv.social_networks.find(profile => profile.network === "GitHub")
+const githubUserName = githubProfile?.username
+---
+
+{githubProfile && (
+<Card class="relative">
+  <CardHeader>
+    <CardTitle>GitHub Activity</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <AspectRatio ratio={16 / 3}>
+      <Image src=`https://ghchart.rshah.org/6366f1/${githubUserName}` alt="GitHub contribution Graph"
+             class="h-full w-full object-contain"
+             width="663" height="104" />
+    </AspectRatio>
+    <a href="https://www.youtube.com/@beegees" target="_blank"
+       class="absolute bottom-2 right-2 hidden md:block lg:bottom-4 lg:right-4">
+      <img src="/favicon.svg" alt="Mascot painting" loading="lazy" class="h-16 lg:h-20">
+    </a>
+  </CardContent>
+</Card>)}

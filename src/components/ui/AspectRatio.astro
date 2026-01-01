@@ -1,0 +1,22 @@
+---
+// Ref: https://ui.shadcn.com/docs/components/aspect-ratio
+// Usage: <AspectRatio ratio={16/9}><img src="..." /></AspectRatio>
+import type { HTMLAttributes } from "astro/types"
+
+export interface Props extends HTMLAttributes<"div"> {
+  ratio?: number
+}
+
+const { ratio = 16 / 9, ...rest } = Astro.props
+---
+
+<div
+  data-slot="aspect-ratio"
+  style={{ position: "relative", width: "100%", paddingBottom: `${100 / ratio}%` }}
+  {...rest}
+>
+  <div style={{ position: "absolute", top: "0", right: "0", bottom: "0", left: "0" }}>
+    <slot />
+  </div>
+</div>
+

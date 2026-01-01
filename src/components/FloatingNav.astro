@@ -1,0 +1,69 @@
+---
+import cvJSON from "../data/cv.astro.json"
+
+import { cn } from "../lib/utils"
+import GitHubIcon from "../assets/github.svg"
+import Separator from "../components/ui/Separator.astro"
+import Button, { buttonVariants } from "./ui/Button.astro"
+
+const cv = cvJSON.cv
+const githubProfile = cv.social_networks.find((profile) => profile.network === "GitHub")
+const githubUrl = `https://github.com/${githubProfile?.username}`
+---
+
+<div
+  class="from-background via-background/60 fixed bottom-0 left-0 z-[9998] h-32 w-full bg-gradient-to-t to-transparent md:h-24"
+>
+</div>
+
+<div
+  class="bg-card ring-border fixed bottom-12 left-1/2 z-[9999] flex -translate-x-1/2 items-center gap-4 rounded-full px-4 py-1.5 shadow-2xl ring-1 lg:bottom-8"
+>
+  <nav id="floating-nav" class="flex items-center gap-0">
+    <Button id="homeBtn" variant="ghost" size="sm" class="font-mono">Home</Button>
+    <Button id="projectsBtn" variant="ghost" size="sm" class="font-mono">Projects</Button>
+    <Button id="contactBtn" variant="ghost" size="sm" class="font-mono">Contact</Button>
+  </nav>
+
+  <div class="h-7">
+    <Separator orientation="vertical" />
+  </div>
+
+  <div class="~justify-center flex items-center">
+    {
+      githubProfile && (
+        <a class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "")} href={githubUrl} aria-label="github logo">
+          <GitHubIcon class="size-4" />
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<script>
+  import { gsap } from "gsap"
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin"
+
+  gsap.registerPlugin(ScrollToPlugin)
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const homeBtn = document.getElementById("homeBtn") as HTMLButtonElement
+    const projectsBtn = document.getElementById("projectsBtn") as HTMLButtonElement
+    const contactBtn = document.getElementById("contactBtn") as HTMLButtonElement
+
+    const nav = document.getElementById("floating-nav")
+    const getOffsetY = () => (nav ? nav.offsetHeight + 20 : 120) // height of nav element in pixels
+
+    const scrollToTarget = (target: string) => {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: { y: target, offsetY: getOffsetY() },
+        ease: "power2.inOut",
+      })
+    }
+
+    homeBtn.addEventListener("click", () => scrollToTarget("#home"))
+    projectsBtn.addEventListener("click", () => scrollToTarget("#projects"))
+    contactBtn.addEventListener("click", () => scrollToTarget("#contact"))
+  })
+</script>

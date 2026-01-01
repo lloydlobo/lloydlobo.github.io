@@ -1,0 +1,20 @@
+---
+// Ref: https://ui.shadcn.com/docs/components/skeleton
+// Usage:
+//   <Skeleton class="h-[20px] w-[100px] rounded-full" />
+import { cn } from "../../lib/utils"
+
+export interface Props {
+  class?: string
+}
+
+const { class: className, ...rest } = Astro.props
+---
+
+<div
+  data-slot="skeleton"
+  class={cn("bg-accent animate-pulse rounded-md", className)}
+  {...rest}
+>
+  <slot />
+</div>

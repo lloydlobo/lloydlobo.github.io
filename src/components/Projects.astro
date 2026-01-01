@@ -1,0 +1,16 @@
+---
+import cvJSON from "../data/cv.astro.json"
+
+import ProjectCard from "../components/ProjectCard.astro"
+
+const cv = cvJSON.cv
+const projects = cv.sections.projects
+---
+
+<section id="projects">
+  <div class="relative my-4 space-y-9 lg:my-8">
+    {projects.map((project) => (
+      <ProjectCard project={project} />
+    ))}
+  </div>
+</section>

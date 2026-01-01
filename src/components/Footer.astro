@@ -1,0 +1,11 @@
+---
+import cvJSON from "../data/cv.astro.json"
+const cv = cvJSON.cv
+const fullName = cv.name
+---
+
+<footer class="~border-t-3 px-5 md:px-0 py-10 ~mt-30">
+  <div class="text-center">
+    <p>© {new Date().getFullYear()} {fullName}. All rights reserved.</p>
+  </div>
+</footer>

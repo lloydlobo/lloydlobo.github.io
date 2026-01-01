@@ -1,0 +1,18 @@
+---
+// CardTitle.astro
+import { cn } from "../../lib/utils"
+
+interface Props {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<div
+  data-slot="card-title"
+  class={cn("leading-none font-semibold", "text-xl lg:text-3xl", "font-mono", className)}
+  {...props}
+>
+  <slot />
+</div>

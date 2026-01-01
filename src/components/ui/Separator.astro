@@ -1,0 +1,61 @@
+---
+import { cn } from "../../lib/utils"
+
+export const ORIENTATIONS = ["horizontal", "vertical"] as const
+export type Orientation = (typeof ORIENTATIONS)[number]
+
+export interface SeparatorProps {
+  /**
+   * Either `vertical` or `horizontal`. Defaults to `horizontal`.
+   */
+  orientation?: Orientation
+
+  /**
+   * Whether the separator is purely decorative.
+   * Defaults to true (matches shadcn).
+   */
+  decorative?: boolean
+
+  class?: string
+
+  [key: string]: any
+}
+
+const DEFAULT_ORIENTATION: Orientation = "horizontal"
+
+function isValidOrientation(value: any): value is Orientation {
+  return ORIENTATIONS.includes(value)
+}
+
+const {
+  orientation: orientationProp = DEFAULT_ORIENTATION,
+  decorative = true,
+  class: className = "",
+  ...domProps
+} = Astro.props as SeparatorProps
+
+const orientation = isValidOrientation(orientationProp) ? orientationProp : DEFAULT_ORIENTATION
+
+// aria-orientation defaults to horizontal, only needed for vertical
+const ariaOrientation = orientation === "vertical" ? orientation : undefined
+
+const semanticProps = decorative
+  ? { role: "none" }
+  : {
+      role: "separator",
+      ...(ariaOrientation ? { "aria-orientation": ariaOrientation } : {}),
+    }
+
+// shadcn/ui default classes
+const baseClasses =
+  "bg-border shrink-0 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:h-full data-[orientation=vertical]:w-px"
+---
+
+<div
+  data-slot="separator"
+  data-orientation={orientation}
+  class={cn(baseClasses, className)}
+  {...semanticProps}
+  {...domProps}
+>
+</div>

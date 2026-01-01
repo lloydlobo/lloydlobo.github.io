@@ -1,0 +1,34 @@
+---
+import cvJSON from "../data/cv.astro.json"
+
+const parsePartsFromMarkdownLink = (link: string) => {
+  const [_, name, url] = link.match(/\[(.*?)\]\((.*?)\)/) || []
+  return { name, url }
+}
+
+const cv = cvJSON.cv
+const projects = cv.sections.projects
+const activeProjects = projects.filter(x => x.active) // currently working on
+const hasActiveProjects = (activeProjects && activeProjects.length)
+---
+
+{ hasActiveProjects ? (
+<div class="flex items-center gap-2 text-base md:text-lg">
+  <span class="text-muted-foreground">Currently working on</span>
+  {
+    activeProjects.map((project, index) => (
+      <>
+        <a
+          href={project?.url ?? parsePartsFromMarkdownLink(project.name).url}
+          target="_blank"
+          class="hover:text-sidebar-primary flex items-center gap-1.5 transition-colors"
+        >
+          <img src={project.image_src} alt={project.imageAlt} class="size-5" />
+          {project.name}
+        </a>
+        {index < activeProjects.length - 1 && <span class="text-muted-foreground">and</span>}
+      </>
+    ))
+  }
+</div>
+  ) : null}

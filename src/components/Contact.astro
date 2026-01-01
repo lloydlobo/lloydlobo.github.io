@@ -1,0 +1,77 @@
+---
+import cvJSON from "../data/cv.astro.json"
+import { cn } from "../lib/utils"
+import Card from "../components/ui/Card.astro"
+import CardHeader from "../components/ui/CardHeader.astro"
+import CardTitle from "../components/ui/CardTitle.astro"
+import CardAction from "../components/ui/CardAction.astro"
+import CardContent from "../components/ui/CardContent.astro"
+import Button from "../components/ui/Button.astro"
+import Label from "../components/ui/Label.astro"
+
+// NOTE: Obfuscation of email via:
+//   - CSS Reversing	High	Excellent - Looks perfect, but bots read it backward.
+//   - JS Click-to-Reveal	Very High	Fair - Requires a user interaction to see the link.
+//   - Hidden Honey Pot Link with mailto:trap@yourdomain.com
+//     - Bots will follow it and get trapped or blocked, while real users will never see it because it's hidden with CSS:
+//
+// NOTE: This script runs in the browser.
+//       'define:vars' passes the emailParts object from the frontmatter to the client.
+
+const reverseString = (str: string): string => str.split("").reverse().join("")
+
+function parseEmail(email: string): { username: string; domain: string; tld: string } {
+  const [username, fullDomain] = email ? email.split("@") : ["", ""]
+  const [domain, tld] = fullDomain ? fullDomain.split(".") : ["", ""]
+  return { username, domain, tld }
+}
+
+const cv = cvJSON.cv
+const email = cv.email
+const emailParts = parseEmail(email)
+---
+
+<Card id="contact">
+  <CardHeader>
+    <CardTitle>Contact</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div class="flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <Label for="contact-button" class="text-sm font-semibold lg:text-base">Have a vision?</Label>
+        {emailParts.username && (
+          <p class={cn("font-muted-foreground text-xs lg:text-sm", "reverse-email")}>
+            <span>{reverseString(emailParts.tld)}</span>
+            <span>[{reverseString("dot")}]</span>
+            <span>{reverseString(emailParts.domain)}</span>
+            <span>[{reverseString("at")}]</span>
+            <span>{reverseString(emailParts.username)}</span>
+          </p>
+        )}
+      </div>
+      <CardAction>
+        <a href="mailto:trap@yourdomain.com" style="display:none !important;" tabindex="-1"> Contact me </a>
+        <Button id="contact-button" title="Click to send email" class="cursor-pointer"> Contact me</Button>
+      </CardAction>
+    </div>
+  </CardContent>
+</Card>
+
+<style>
+  .reverse-email {
+    unicode-bidi: bidi-override; /* Forces the browser to render the reversed spans from right-to-left */
+    direction: rtl;
+    user-select: all; /* Allows humans to copy it normally */
+    text-align: left; /* Anchors the reversed text to the left */
+  }
+</style>
+
+<script is:inline define:vars={{ emailParts }}>
+  const btn = document.getElementById("contact-button")
+  if (btn) {
+    btn.addEventListener("click", () => {
+      const { username, domain, tld } = emailParts
+      window.location.href = `mailto:${username}@${domain}.${tld}`
+    })
+  }
+</script>

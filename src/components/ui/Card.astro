@@ -1,0 +1,38 @@
+---
+// Card.astro
+// Usage:
+//   ---
+// import Card from './Card.astro'
+// import CardHeader from './CardHeader.astro'
+// import CardTitle from './CardTitle.astro'
+// import CardDescription from './CardDescription.astro'
+// import CardAction from './CardAction.astro'
+// import CardContent from './CardContent.astro'
+// import CardFooter from './CardFooter.astro'
+// ---
+//
+// <Card>
+//     <CardHeader>
+//       <CardTitle>Title</CardTitle>
+//       <CardDescription>Description</CardDescription>
+//       <CardAction>Action</CardAction>
+//     </CardHeader>
+//     <CardContent>Content</CardContent>
+//     <CardFooter>Footer</CardFooter>
+//   </Card>
+import type { HTMLAttributes } from "astro/types"
+import { cn } from "../../lib/utils"
+
+interface Props extends HTMLAttributes<"div"> {
+  class?: string
+}
+
+const { class: className, ...props } = Astro.props
+---
+
+<div data-slot="card"
+     class={cn("bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm", "overflow-hidden", className)}
+     {...props}>
+  <slot />
+</div>
+

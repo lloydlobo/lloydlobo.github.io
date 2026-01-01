@@ -1,0 +1,112 @@
+---
+import cvJSON from "../data/cv.astro.json"
+import HeroBefore from "../components/HeroBefore.astro"
+import HeroAfter from "../components/HeroAfter.astro"
+import ArrowIcon from "../assets/arrow.svg" // https://docs.astro.build/en/guides/images/#svg-component-attributes
+import BraceLeftIcon from "../assets/brace-left.svg"
+
+const cv = cvJSON.cv
+const summary = cv.sections["Professional Summary"].join(". ") + "."
+const name = cv.name
+const firstName = name.split(" ").at(0) ?? name
+const lastName = name.split(" ").at(1) ?? ""
+const headline = cv.headline
+---
+
+<section class="relative mt-8 pb-8 lg:pb-12">
+  <!--<HeroBefore />-->
+  <div class="hero space-y-4 lg:space-y-6">
+    <h1 class="fade-in text-4xl font-semibold lg:text-5xl">
+      Hello there! I'm <span>{firstName}</span>{" "}<span class="sr-only">{lastName}</span>
+    </h1>
+
+    <div class="~text-muted-foreground flex max-w-prose items-center gap-1 text-base md:text-lg">
+      <BraceLeftIcon class="size-5" />
+      <p class="hero-headline font-mono">{headline}</p>
+      <BraceLeftIcon class="size-5 rotate-180 skew-x-[360deg]" />
+    </div>
+
+    <p
+      class="hero-summary ~line-clamp-4 max-w-prose text-base opacity-0 will-change-transform md:text-lg [&_*]:will-change-transform"
+      aria-hidden="true"
+    >
+      {summary}
+    </p>
+  </div>
+
+  <HeroAfter />
+
+  <div class="arrow-1 absolute top-10 right-72 hidden md:block">
+    <div style="aspect-ratio: 0.85">
+      <ArrowIcon class="size-24" />
+    </div>
+  </div>
+
+  <div class="arrow-2 absolute top-28 right-0 mt-16 hidden md:block">
+    <div style="aspect-ratio: 0.85">
+      <ArrowIcon class="size-24" />
+    </div>
+  </div>
+</section>
+
+<script>
+  //
+    import { gsap } from "gsap"
+    import { SplitText } from "gsap/SplitText"
+
+    gsap.from(".hero", { opacity: 0, y: -50, duration: 1.2, ease: "power3.out" })
+
+    // Ref: https://codepen.io/GreenSock/pen/poZaJQa
+    document.fonts.ready.then(() => {
+      let text = document.querySelector(".hero-headline")
+      if (!text) return
+
+      gsap.set(text, { opacity: 1 })
+
+      let mySplitText = SplitText.create(text, { type: "chars, words", charsClass: "char" })
+      let chars = mySplitText.chars
+
+      gsap.from(chars, {
+        duration: 1.0,
+        opacity: 0,
+        scale: 0,
+        y: 80,
+        rotationX: 180,
+        transformOrigin: "0% 50% -50%",
+        ease: "back",
+        stagger: 0.05 * 0.75,
+        onComplete: () => {
+          mySplitText.revert()
+          text?.removeAttribute("aria-hidden")
+          },
+        })
+      })
+
+    // Ref: https://codepen.io/GreenSock/pen/LEYqezo
+    document.fonts.ready.then(() => {
+      gsap.set(".hero-summary", { opacity: 1 })
+      SplitText.create(".hero-summary", {
+        type: "words,lines",
+        linesClass: "line",
+        autoSplit: true,
+        mask: "lines",
+        onSplit: (self) => {
+          gsap.from(self.lines, {
+            duration: 0.6,
+            yPercent: 100,
+            opacity: 0,
+            stagger: 0.2,
+            ease: "expo.out",
+            onComplete: () => {
+              self.revert() // revert the split
+              document.querySelector(".hero-summary")?.removeAttribute("aria-hidden")
+              },
+            })
+          },
+        })
+      })
+
+    gsap.from(".arrow-1", { opacity: 0, x: -30, rotation: -15, duration: 2, delay: 0.6, ease: "back.out(1.7)" })
+
+    gsap.from(".arrow-2", { opacity: 0, x: 30, rotation: 15, duration: 2, delay: 0.8, ease: "back.out(1.7)" })
+</script>
