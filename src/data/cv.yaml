@@ -10,7 +10,7 @@ cv:
   website: "https://lloydlobo.github.io/"
   social_networks:
     - network: "LinkedIn"
-      username: "lloydlobo"
+      username: "thelloydlobo"
     - network: "GitHub"
       username: "lloydlobo"
   custom_connections:
@@ -24,7 +24,7 @@ cv:
       - label: "Graphics & Game Development"
         details: "Raylib, OpenGL, Blender, 3D Modeling, Ray Tracing"
       - label: "Web Technologies"
-        details: "React, FastAPI, Web Components, HTML/CSS/JavaScript, HTTP Servers"
+        details: "React, Astro, Express, FastAPI, Web Components, HTML/CSS/JavaScript, HTTP Servers"
       - label: "Systems Programming"
         details: "X11 Protocol, Memory Management, Compiler Construction"
     projects:

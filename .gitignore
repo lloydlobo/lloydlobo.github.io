@@ -22,4 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
-src/data/rendercv_output
+# src/data/rendercv_output
+public/astro.svg
+src/assets/idea.svg
+src/assets/new.svg
+src/assets/string.svg
+src/assets/underline.svg
+src/data/resume.json
+src/data/resume.meta.json
+src/content.config.ts.bak
