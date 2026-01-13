@@ -3,7 +3,8 @@ import { Image } from "astro:assets"
 
 import GitHubIcon from "../assets/github.svg"
 import GlobeIcon from "../assets/globe.svg"
-import { cn, isGitHubUrL } from "../lib/utils"
+import { cn } from "../lib/utils"
+import { isGitHubUrL } from "../utils/urls"
 import { buttonVariants } from "../components/ui/Button.astro"
 import Badge from "../components/ui/Badge.astro"
 import Card from "../components/ui/Card.astro"
@@ -31,26 +32,32 @@ const [_, name, url] = project.name.match(/\[(.*?)\]\((.*?)\)/) || []
     </CardHeader>
     <CardContent>
       <div class="mb-3 flex flex-wrap gap-2 lg:mb-6">
-        {project.keywords.map((keyword: string) => (
-          <Badge variant="secondary" class="~font-semibold ~bg-background rounded-md">
-            {keyword}
-          </Badge>
-        ))}
+        {
+          project.keywords.map((keyword: string) => (
+            <Badge variant="secondary" class="~font-semibold ~bg-background rounded-md">
+              {keyword}
+            </Badge>
+          ))
+        }
       </div>
       <CardAction class="col-start-auto row-span-1 row-start-auto flex gap-2 self-auto justify-self-auto">
         <div class="flex gap-2">
-          {url && isGitHubUrL(url) && (
-            <a href={url} class={cn(buttonVariants({ variant: "outline" }))}>
-              <GitHubIcon class="size-5" />
-              <span>GitHub</span>
-            </a>
-          )}
-          {project.url && !isGitHubUrL(project.url) && (
-            <a href={project.url} class={cn(buttonVariants({ variant: "outline" }))}>
-              <GlobeIcon class="size-5" />
-              <span>Website</span>
-            </a>
-          )}
+          {
+            url && isGitHubUrL(url) && (
+              <a href={url} class={cn(buttonVariants({ variant: "outline" }))}>
+                <GitHubIcon class="size-5" />
+                <span>GitHub</span>
+              </a>
+            )
+          }
+          {
+            project.url && !isGitHubUrL(project.url) && (
+              <a href={project.url} class={cn(buttonVariants({ variant: "outline" }))}>
+                <GlobeIcon class="size-5" />
+                <span>Website</span>
+              </a>
+            )
+          }
         </div>
       </CardAction>
     </CardContent>
@@ -63,7 +70,7 @@ const [_, name, url] = project.name.match(/\[(.*?)\]\((.*?)\)/) || []
         isRight
           ? "right-0 lg:group-hover:translate-x-6 lg:group-hover:rotate-3"
           : "left-0 lg:group-hover:-translate-x-6 lg:group-hover:-rotate-3",
-        "lg:group-hover:translate-y-4",
+        "lg:group-hover:translate-y-4"
       )}
     >
       <Image

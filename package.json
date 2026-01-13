@@ -8,6 +8,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "yaml2json": "tsx scripts/yaml-to-json.ts",
+    "test:unit": "vitest",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:run": "vitest run",
+    "test:unit:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
@@ -24,13 +28,18 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "@testing-library/jest-dom": "^6.9.1",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^25.0.3",
+    "@vitest/coverage-v8": "^4.0.17",
+    "@vitest/ui": "^4.0.17",
     "glob": "^13.0.0",
     "js-yaml": "^4.1.1",
+    "jsdom": "^27.4.0",
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "tsx": "^4.21.0"
+    "tsx": "^4.21.0",
+    "vitest": "^4.0.17"
   }
 }

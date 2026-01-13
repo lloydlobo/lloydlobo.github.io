@@ -38,3 +38,4 @@ src/content.config.ts.bak
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+coverage
