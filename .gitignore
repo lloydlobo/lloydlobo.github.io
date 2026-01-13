@@ -31,3 +31,10 @@ src/assets/underline.svg
 src/data/resume.json
 src/data/resume.meta.json
 src/content.config.ts.bak
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

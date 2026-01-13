@@ -17,6 +17,7 @@ const githubUrl = `https://github.com/${githubProfile?.username}`
 </div>
 
 <div
+  id="floating-nav-container"
   class="bg-card ring-border fixed bottom-12 left-1/2 z-[9999] flex -translate-x-1/2 items-center gap-4 rounded-full px-4 py-1.5 shadow-2xl ring-1 lg:bottom-8"
 >
   <nav id="floating-nav" class="flex items-center gap-0">
@@ -29,10 +30,10 @@ const githubUrl = `https://github.com/${githubProfile?.username}`
     <Separator orientation="vertical" />
   </div>
 
-  <div class="~justify-center flex items-center">
+  <div class="flex items-center">
     {
       githubProfile && (
-        <a class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "")} href={githubUrl} aria-label="github logo">
+        <a class={cn(buttonVariants({ variant: "ghost", size: "sm" }), "")} href={githubUrl} aria-label="GitHub" role="link">
           <GitHubIcon class="size-4" />
         </a>
       )

@@ -17,14 +17,13 @@
 ### Mockups
 
 - [MacOS Frame Template - Gautham](https://www.figma.com/community/file/814930057611704664)
-- [Big Sur Safari Mockup - Sasha Lazarev]( https://www.figma.com/community/file/912816288448729178)
+- [Big Sur Safari Mockup - Sasha Lazarev](https://www.figma.com/community/file/912816288448729178)
 
 ### Stack
 
 <details>
 
 <summary>About Astro</summary>
-
 
 ## Astro Starter Kit: Minimal
 
@@ -60,7 +59,7 @@ Any static assets, like images, can be placed in the `public/` directory.
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
-|:--------------------------|:-------------------------------------------------|
+| :------------------------ | :----------------------------------------------- |
 | `npm install`             | Installs dependencies                            |
 | `npm run dev`             | Starts local dev server at `localhost:4321`      |
 | `npm run build`           | Build your production site to `./dist/`          |
@@ -72,5 +71,54 @@ All commands are run from the root of the project, from a terminal:
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into
 our [Discord server](https://astro.build/chat).
+
+</details>
+
+## Testing
+
+<details>
+
+<summary>### Playwright</summary>
+
+Update Playwright and download new browser binaries and their dependencies:
+
+```
+  npx playwright install --with-deps
+```
+
+Inside that directory, you can run several commands:
+
+```
+  npx playwright test
+  # Runs the end-to-end tests.
+
+  npx playwright test --ui
+  # Starts the interactive UI mode.
+
+  npx playwright test --project=chromium
+  # Runs the tests only on Desktop Chrome.
+
+  npx playwright test example
+  # Runs the tests in a specific file.
+
+  npx playwright test --debug
+  # Runs the tests in debug mode.
+
+  npx playwright codegen
+  # Auto generate tests with Codegen.
+```
+
+We suggest that you begin by typing:
+
+```
+    npx playwright test
+```
+
+And check out the following files:
+
+- ./tests/example.spec.ts - Example end-to-end test
+- ./playwright.config.ts - Playwright Test configuration
+
+Visit https://playwright.dev/docs/intro for more information. ✨
 
 </details>
