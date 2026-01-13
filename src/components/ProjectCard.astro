@@ -20,18 +20,17 @@ const isRight = project.card_direction === "right"
 const [_, name, url] = project.name.match(/\[(.*?)\]\((.*?)\)/) || []
 ---
 
-<Card
-  aria-label={project.name}
-  class={cn("group", isRight ? "lg:flex-row-reverse ~lg:pr-8 ~lg:pl-0" : "lg:flex-row ~lg:pl-8 ~lg:pr-0")}
->
-  <div class={cn("w-full lg:w-2/5", "flex flex-col justify-center", "mb-6 lg:mb-12" /*"pt-6 lg:pt-8",*/)}>
+<Card aria-label={project.name} class={cn("group", isRight ? "lg:flex-row-reverse" : "lg:flex-row")}>
+  <div class={cn("w-full lg:w-2/5", "flex flex-col justify-center", "mb-6 lg:mb-12")}>
     <CardHeader>
-      <span class="text-muted-foreground mb-2 w-max font-mono text-xs font-semibold lg:mb-4">{project.type}</span>
+      <span class={cn("text-muted-foreground w-max font-mono text-xs font-semibold", "mb-2 sm:mb-3 lg:mb-4")}
+        >{project.type}</span
+      >
       <CardTitle>{name}</CardTitle>
-      <CardDescription class="mb-3 text-sm lg:mb-6 lg:text-lg">{project.summary}</CardDescription>
+      <CardDescription class={cn("mb-3 sm:mb-4 lg:mb-6", "text-sm lg:text-lg")}>{project.summary}</CardDescription>
     </CardHeader>
     <CardContent>
-      <div class="mb-3 flex flex-wrap gap-2 lg:mb-6">
+      <div class={cn("flex flex-wrap gap-2", "mb-3 sm:mb-4 lg:mb-6")}>
         {
           project.keywords.map((keyword: string) => (
             <Badge variant="secondary" class="~font-semibold ~bg-background rounded-md">
@@ -66,7 +65,8 @@ const [_, name, url] = project.name.match(/\[(.*?)\]\((.*?)\)/) || []
   <div class="relative w-full lg:w-3/5">
     <div
       class={cn(
-        "-mb-4 flex w-[140%] items-end transition-transform duration-300 lg:absolute lg:-mb-0 lg:translate-x-0 lg:translate-y-8 ",
+        "flex items-end transition-transform duration-300 lg:absolute lg:-mb-0 lg:translate-x-0 lg:translate-y-8 ",
+        "-mb-4 lg:-mb-0 w-[120%] sm:w-[110%] lg:w-[140%]",
         isRight
           ? "right-0 lg:group-hover:translate-x-6 lg:group-hover:rotate-3"
           : "left-0 lg:group-hover:-translate-x-6 lg:group-hover:-rotate-3",

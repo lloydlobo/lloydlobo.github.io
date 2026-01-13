@@ -1,43 +1,45 @@
 ---
 import cvJSON from "../data/cv.astro.json"
+import { cn } from "../lib/utils"
 
 const cv = cvJSON.cv
 const summary = cv.sections["Professional Summary"].join(". ") + "."
 ---
 
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width" />
-  <meta name="description" content={summary} />
-  <meta name="generator" content={Astro.generator} />
-  <title>Lloyd Lobo | Portfolio</title>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content={summary} />
+    <meta name="generator" content={Astro.generator} />
+    <title>Lloyd Lobo | Portfolio</title>
 
-  <script is:inline>
-    // Ref: https://ui.shadcn.com/docs/dark-mode/astro
-    const getThemePreference = () => {
-      if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-        return localStorage.getItem("theme")
+    <script is:inline>
+      // Ref: https://ui.shadcn.com/docs/dark-mode/astro
+      const getThemePreference = () => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme")
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
       }
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-    }
-    const isDark = getThemePreference() === "dark"
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+      const isDark = getThemePreference() === "dark"
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark")
 
-    if (typeof localStorage !== "undefined") {
-      const observer = new MutationObserver(() => {
-        const isDark = document.documentElement.classList.contains("dark")
-        localStorage.setItem("theme", isDark ? "dark" : "light")
-      })
-      observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
-    }
-  </script>
-</head>
+      if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains("dark")
+          localStorage.setItem("theme", isDark ? "dark" : "light")
+        })
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
+      }
+    </script>
+  </head>
 
-<body>
-<main class="container mx-auto mb-32 lg:mb-28">
-  <slot />
-</main>
-</body>
+  <body>
+    <main class={cn("container mx-auto ", "mb-24 px-4 sm:mb-28 sm:px-6 lg:mb-28 lg:px-8 xl:px-12")}>
+      <slot />
+    </main>
+  </body>
 </html>
