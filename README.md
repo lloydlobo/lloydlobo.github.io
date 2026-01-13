@@ -1,4 +1,8 @@
-# portfolio
+# lloydlobo.github.io
+
+[![Deploy to GitHub Pages](https://github.com/lloydlobo/lloydlobo.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/lloydlobo/lloydlobo.github.io/actions/workflows/deploy.yml)
+
+[![Playwright Tests](https://github.com/lloydlobo/lloydlobo.github.io/actions/workflows/playwright.yml/badge.svg)](https://github.com/lloydlobo/lloydlobo.github.io/actions/workflows/playwright.yml)
 
 ## Acknowledgements
 
