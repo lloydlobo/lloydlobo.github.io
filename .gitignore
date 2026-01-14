@@ -39,3 +39,5 @@ src/content.config.ts.bak
 /playwright/.cache/
 /playwright/.auth/
 coverage
+src/components/__tests__/example-counter.test.ts
+src/components/ExampleCounter.astro
