@@ -36,6 +36,68 @@ cv:
         details: "X11 Protocol, Memory Management, Compiler Construction"
 
     projects:
+      - name: "[Secretbin](https://github.com/lloydlobo/secretbin)"
+        date: null
+        start_date: "2024-??"
+        end_date: "2024-??"
+        summary: "A zero-knowledge, client-side encrypted pastebin for securely sharing code snippets and configuration files."
+        highlights:
+          - "Implements client-side AES-GCM encryption with zero server access to plaintext"
+          - "Encryption key stored in URL fragment to ensure zero-knowledge architecture"
+          - "Configurable paste expiration (minutes to permanent)"
+          - "Syntax highlighting for shared code snippets"
+          - "Modern, responsive UI built with Tailwind CSS and Shadcn UI"
+
+        card_direction: "left"
+        keywords:
+          - Security
+          - Encryption
+          - Cryptography
+          - React
+          - TypeScript
+          - PostgreSQL
+          - Fastify
+          - Web Security
+        roles:
+          - "Full-Stack Developer"
+        entity: ""
+        type: "Personal Project"
+        url: null
+        image_src: "/images/projects/secretbin.png"
+        imageAlt: "Secretbin encrypted pastebin"
+        active: False
+
+      - name: "[The Daily Game](https://github.com/lloydlobo/the-daily-game)"
+        date: null
+        start_date: "2024-??"
+        end_date: "2024-??"
+        summary: "A modern daily puzzle platform featuring multiple brain-training games with persistent progress and streak tracking."
+        highlights:
+          - "Four daily puzzle games: Wordle, Hangman, Scramble, and Punchline"
+          - "Daily content refresh with local-first persistence"
+          - "Streaks and statistics tracked across all games"
+          - "Responsive, accessible UI with dark mode support"
+          - "Modular game architecture designed for easy expansion"
+
+        card_direction: "right"
+        keywords:
+          - React
+          - TypeScript
+          - Frontend
+          - Games
+          - UI/UX
+          - State Management
+          - IndexedDB
+          - Playwright
+        roles:
+          - "Frontend Developer"
+        entity: ""
+        type: "Personal Project"
+        url: "https://the-daily-game.netlify.app"
+        image_src: "/images/projects/the-daily-game.png"
+        imageAlt: "The Daily Game dashboard"
+        active: False
+
       - name: "[tinycreatures](https://github.com/lloydlobo/tinycreatures))"
         date: null
         start_date: "2024-10-06"
